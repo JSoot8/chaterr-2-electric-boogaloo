@@ -1,0 +1,169 @@
+#root {
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-color: #888888 transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  --not-so-white: #eee;
+  --not-so-black: #222;
+  --green: #006400;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --primary-color: #e3e3e3;
+  --primary-text-color: var(--not-so-black);
+  --background-color: var(--not-so-white);
+}
+
+#root.dark {
+  --primary-color: var(--not-so-black);
+  --background-color: #444;
+  --primary-text-color: var(--not-so-white);
+}
+
+.pageContainer {
+  display: grid;
+  grid-template-columns: 70dvw 30dvw;
+  grid-template-rows: 15dvh 85dvh;
+  grid-template-areas:
+    "header header"
+    "chat sidebar";
+
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  grid-area: header;
+  justify-content: end;
+
+  padding: 1rem 2rem;
+
+  background-color: var(--background-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--background-color);
+}
+
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 1rem;
+
+  background-color: var(--primary-color);
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 3rem;
+  flex: 1;
+  overflow-y: auto;
+  /* to make scrollbar left */
+  direction: rtl;
+}
+
+.message-input__form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.message-input {
+  position: relative;
+}
+
+.error-msg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-110%);
+
+  color: crimson;
+}
+
+.btn {
+  color: var(--not-so-white);
+  background-color: var(--green);
+  cursor: pointer;
+}
+
+.input {
+  flex: 1;
+
+  color: var(--primary-text-color);
+  background-color: var(--background-color);
+  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.btn,
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.message {
+  width: max-content;
+  min-width: 30%;
+  max-width: 80%;
+  overflow-wrap: break-word;
+  background-color: var(--background-color);
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+  color: var(--primary-text-color);
+
+  text-align: left;
+  align-self: end;
+}
+
+.message--user {
+  color: var(--not-so-white);
+  background-color: var(--green);
+  align-self: start;
+}
+
+.message--sender,
+.message--time-stamp,
+.typing-indicator {
+  font-size: 0.75rem;
+}
+
+.message--sender {
+  color: var(--sender-color, --primary-text-color);
+}
+
+.message--time-stamp {
+  display: block;
+  text-align: right;
+}
+
+.typing-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-110%);
+  color: var(--primary-text-color);
+}
