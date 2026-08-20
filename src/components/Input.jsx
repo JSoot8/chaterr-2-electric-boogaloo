@@ -1,8 +1,7 @@
-function Input({ value, onChange }) {
+function Input({ onChange }) {
   return (
     <input
       type="text"
-      value={value}
       onChange={onChange}
       className="input"
       placeholder="Say Something"

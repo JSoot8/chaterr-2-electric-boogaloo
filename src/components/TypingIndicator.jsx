@@ -1,7 +1,9 @@
 function TypingIndicator({ children }) {
   return (
     <span className="typing-indicator">
-      {children[0] && children + " is typing..."}
+      {children.length > 1
+        ? children.join(", ") + " are typing..."
+        : children + " is typing..."}
     </span>
   );
 }
