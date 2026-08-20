@@ -15,10 +15,3 @@ function Chat({ msgArr }) {
 }
 
 export default Chat;
-
-// [1, 2, 3]
-// const toilet = skibidi.map((num) => {
-//return num + 1
-//})
-
-// toilet =
