@@ -1,5 +1,5 @@
 function Sidebar() {
-  return <div className="sidebar"></div>;
+  return <aside className="sidebar"></aside>;
 }
 
 export default Sidebar;

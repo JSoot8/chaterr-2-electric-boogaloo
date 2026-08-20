@@ -16,6 +16,11 @@ export function ChatProvider({ children }) {
   const channelRef = useRef(null);
   const typingTimeoutsRef = useRef({});
 
+  const changeUser = () => {
+    const newUserName = prompt("whats ur name cuh");
+    setCurrentUser(newUserName);
+  };
+
   const addTyping = useCallback(
     (theOneWhoTypes) => {
       setCurrentTypists((typists) =>
@@ -86,6 +91,7 @@ export function ChatProvider({ children }) {
         currentUser,
         postTyping,
         currentTypists,
+        changeUser,
       }}
     >
       {children}
